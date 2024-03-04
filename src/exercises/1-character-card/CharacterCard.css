@@ -1,0 +1,35 @@
+p {
+    color: black;
+    margin: 0.3em;
+}
+
+.name-text {
+    background-color: darkblue;
+    color:white;
+    padding: 0.3em;
+    font-weight: 600;
+    margin: 5px;
+    border: solid 2px burlywood;
+}
+
+.items-container {
+    margin: 5px;
+    border: solid 1px burlywood;
+    background-color: bisque;
+}
+
+.stats-container {
+    display: flex;
+    justify-content: center;
+    height: fit-content;
+}
+
+.stats-text {
+    padding: 0px 2em;
+    margin: 0.3em;
+    font-weight: bold;
+}
+
+.subheading {
+    font-weight: bold;
+}
