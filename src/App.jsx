@@ -2,7 +2,9 @@ import './App.css'
 import { Route, Routes } from "react-router";
 import LandingPage from './LandingPage';
 import CharacterCard from './exercises/1-character-card/CharacterCard';
-import LinksCookbook from './exercises/2-links-cookbook/LinksCookbook';
+import CookBook from './exercises/2-links-cookbook/Cookbook';
+import CharacterCardAns from './answers/1-character-card/CharacterCard';
+import LinksCookbookAns from './answers/2-links-cookbook/LinksCookbook';
 
 function App() {
   // !! [DO NOT TOUCH] !!
@@ -12,9 +14,9 @@ function App() {
     <Routes>
       <Route path="/" element={<LandingPage/>}/>
       <Route path="/exercise1/" element={<CharacterCard/>}/>
-      <Route path="/exercise2/" element={<LinksCookbook/>}/>
-      <Route path="/answers/exercise1/" element={<CharacterCard/>}/>
-      <Route path="/answers/exercise2/" element={<LinksCookbook/>}/>
+      <Route path="/exercise2/" element={<CookBook/>}/>
+      <Route path="/answers/exercise1/" element={<CharacterCardAns/>}/>
+      <Route path="/answers/exercise2/" element={<LinksCookbookAns/>}/>
     </Routes>
   )
 }
