@@ -4,7 +4,7 @@ import LandingPage from './LandingPage';
 import CharacterCard from './exercises/1-character-card/CharacterCard';
 import CookBook from './exercises/2-links-cookbook/Cookbook';
 import CharacterCardAns from './answers/1-character-card/CharacterCard';
-import LinksCookbookAns from './answers/2-links-cookbook/LinksCookbook';
+import LinksCookbookAns from './answers/2-cookbook/Cookbook';
 
 function App() {
   // !! [DO NOT TOUCH] !!
