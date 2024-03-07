@@ -7,10 +7,10 @@ const RecipeCard = ({recipe}) => {
 
   return (
     <div id="recipe-card-container">
-        <h3 id="recipe-card-title">{recipe.name}</h3>
-        <hr/>
-        <HeartContainer numHearts={recipe.health_restored}/>
-        {ingredientsList}
+      <h3 id="recipe-card-title">{recipe.name}</h3>
+      <hr/>
+      <HeartContainer numHearts={recipe.health_restored}/>
+      {ingredientsList}
     </div>
   );
 }

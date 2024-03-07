@@ -28,8 +28,10 @@ p {
     padding: 0px 2em;
     margin: 0.3em;
     font-weight: bold;
+    color: black;
 }
 
 .subheading {
     font-weight: bold;
+    color: black;
 }

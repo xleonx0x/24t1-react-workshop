@@ -1,35 +1,109 @@
-# Introduction to React ⚛︎
-## 📕 Preface and Resources
-You can find the official documentation [here](https://react.dev/). This series of exercises is intended to be a bite-sized and practical rendition of it, but I would highly recommend having a read through of the documentation yourself and attempting any examples/exercises provided. The [odin project](https://www.theodinproject.com/paths/full-stack-javascript/courses/react) also has a great section on react for further practice.
+# 👋 Hello World! 🌎
+*This exercise covers the basics of creating/installing a react project, navigating through the directory structure, and how to run your web app.*
 
-You may also find the following resources useful:
+## Setting up
+Usually we create a react app using a **react based framework**. A framework is essentially a structure you can build your software on so you aren’t starting with an empty directory. For simplicity we will not start with one, and are instead going to use a tool called [Vite](https://vitejs.dev/).
 
-- [Generate SSH Key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+In the terminal, enter
+```
+$ npm create vite@latest [YOUR_PROJECT_NAME_HERE] -- --template react
+$ cd  [YOUR_PROJECT_NAME_HERE]
+```
 
-- [Adding an SSH Key to Github](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
+To run the application, first run `npm i` to install all the project dependencies, then `npm run dev`, and copy paste the link http://localhost:5173/ into your browser to view the app! Every time you make changes, the page will automatically refresh when you save so you don't need to manually reload the page every time :)
 
-- [Jeremy’s very cool git guide](https://gist.github.com/jeremyle56/f3b664f0491d6ec0d9a03ab34780b876)
+```
+$ npm i
+    ...
+$ npm run dev
 
-- [Nicole's git commands cheat sheet](https://docs.google.com/document/d/1KkC-NQB3OIUA3LnGJRxulVJaJXPF8smtSbw0c0Mye40/edit?usp=sharing)
+  VITE v5.0.11  ready in 833 ms
 
-- [Install nodeJs (use LTS)](https://nodejs.org/en/download)
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+  ➜  press h + enter to show help
+```
+Note that localhost means that we are running a local server, so your site will stop working after you have terminated the connection with `^C` or `^D`.
 
-## What is React?
-React is a javascript library for building web apps and mobile applications, it essentially makes it really easy to write javascript and html together!
+## Directory Structure
+Depending on the framework used for your project, your directory structure may look a little bit different, but will usually contain the following files or directories:
 
-To be a little more specific, React is a User Interface (UI) library, which has a focal point on breaking down pages into **components**, that will react accordingly when the **state** of your application changes by re-rendering the affected components.
+| File/dir           | Description                                                                                                                                                                       |
+|--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| App.jsx            | Your project’s main hub! Usually will contain some routes to different pages.                                                                                                     |
+| index.css          | Any global styling can be found here (basically css that will show up on all your pages)                                                                                          |
+| types.ts           | Depending on the scope of your project, this might be a directory with a few files in it. But this contains any interfaces or types that you may need to use to pass data around. |
+| assets/            | Any media you might use in your `.tsx` files!                                                                                                                                     |
+| components/ props/ | Reusable chunks of code + styling that you have broken your page down into. Props are literally just components that take in ‘properties’.                                        |
+| pages/             | The main pages that your ‘app’ has. Usually you would have a route in `App.tsx` to each page.                                                                                     |
 
-One of the main ideas that react uses is **declarative rendering**; meaning that opposed to extracting the exact element to edit imperatively, we just declare the outcome and let react figure out how to make the changes.
+Note that since Vite is not a framework, some of these files/directories are missing, but you should put your code inside the `src` directory (and optionally make subdirectories to organise your exercises).
+
+## File anatomy
+Open `src/App.jsx`, you should be greeted by some pre-written code; don't worry about what it does yet, but this can give you a general idea of how a **component** is laid out.
+
+![1-1-1](./images/1-1-1.png)
+
+In React, you'll mainly be working with `.jsx` files, this stands for **J**ava**S**cript **X**ML. Basically, it allows you to combine markup and javascript together, rather than putting them in seperate files. We will go further into this later :)
+
+## [TASK 1.1] Hello World!
+⚠️ You should clone this repository for this, and the subsequent exercises. `App.jsx` will be setup differently for easier use, and instead you'll mainly be working in `src/exercises/`.
+
+You have been given an empty page, your task is to sucessfully render "Hello World", such that your page looks somewhat like this:
+
+![1-1-2](./images/1-1-2.png)
+
+**[Solution: 1-1-helloWorld](../src/answers/1-1-helloWorld.jsx)**
 
 
-## What is actually going on
+## Writing markup
+Plain markup is very similar to html, but wtih a couple more rules.
+Similar to html, we can also style markup elements with css by importing the file at the top of the page, and using the `className` or `id` fields to label.
 
-Anytime we work with javascript, there arises a problem of wanting to keep our DOM and javascript in sync. 
+### html
+```html
+<h1>Kirby's questlog</h1>
+<img
+  src="url/to_a_photo.png"
+  alt="Kirby"
+  class="photo"
+>
+<ul>
+  <li>Invent new traffic lights
+  <li>Rehearse a movie scene
+  <li>Improve spectrum technology
+</ul>
+```
+### jsx
+- We must return a **singular** root div; it can be a regular div or an empty one like below called a fragment.
+- All brackets must now be closed; you can see so in the `<img>` and `<li>` elements.
+```jsx
+<>
+  <h1>Kirby's questlog</h1>
+  <img
+    src="url/to_a_photo.png"
+    alt="Kirby"
+    className="photo"
+  />
+  <ul>
+    <li>Invent new traffic lights</li>
+    <li>Rehearse a movie scene</li>
+    <li>Improve spectrum technology</li>
+  </ul>
+</>
+```
 
-A naive and dumb way of ensuring this is to delete the whole DOM and re-render it entirely from scratch anytime something changes. However, it is too computationally expensive to do this since each re-render we are recalculating the positions of everything and then actually rendering the objects.
+## [TASK 1.2] Bad Time
+Great! You should now have an idea of how and where to put your markup :D Let's have a little go at a more complicated example;
 
-But we can make this ‘delete the whole DOM’ approach more efficient by only deleting and recreating the parts we actually need. So by keeping our own copy of the HTML hierarchy in js, we can make changes against it and use the differences to update minimal parts of the DOM. This technique is called the **virtual DOM**.
+In `src/exercises/1-2-badtime/`, try to recreate the following page. You may need to create and import your own css file in order to style some elements to make it match the result.
 
----
+![1-1-3](./images/1-1-3.png)
 
-⚠️ Before you proceed with the exercises, make sure that you've installed [nodeJs (use LTS)](https://nodejs.org/en/download).
+- Dialogue inside the textbox should be represented with an unordered list.
+- Use an empty div for the health bar (yellow box) at the bottom
+- URL for the image is `https://static.wikia.nocookie.net/undertale/images/0/0f/Sans_battle_idle.gif/`
+
+Don't worry if your styling isn't super on point, though it would be a good idea to get some practice in!
+
+**[Solution: 1-2-markup](../src/answers/1-1-helloWorld.jsx)**

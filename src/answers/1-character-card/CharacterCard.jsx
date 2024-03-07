@@ -3,8 +3,8 @@ import { character } from './characterData';
 
 const CharacterCard = () => {
 	
-	const showItems = character.items.map(x =><p>{x.item} x{x.quantity}</p>);
-	const showAbilities = character.abilities.map(x => <p>{x}</p>);
+	const showItems = character.items.map(x =><p style={{color:"black"}}>{x.item} x{x.quantity}</p>);
+	const showAbilities = character.abilities.map(x => <p style={{color:"black"}}>{x}</p>);
 
 	return(
 		<div style={{width:'25em', height:'fit-content'}}>
@@ -15,7 +15,7 @@ const CharacterCard = () => {
 					<p className='stats-text'>HP {character.hp_curr}/{character.hp_max}</p>
 				</div>
 				<img src={character.img} style={{width:'50px'}}/>
-				<p>{character.class}</p>
+				<p style={{color:"black"}}>{character.class}</p>
 			</div>
 
 			<div className='items-container' style={{display:'flex', justifyContent:'center'}}>
