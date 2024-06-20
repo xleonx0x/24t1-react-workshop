@@ -1,24 +1,30 @@
 import { character } from "./characterData";
+import './characterCard.css'
 // TODO: YOUR CODE HERE
 const CharacterCard = () => {
 	const styles = {
 		container : {
 			width: "400px",
-			display: "flex"
+			display: "flex",
+			flexDirection: "column",
+			gap: "10px"
 		},
 		nameContainer : {
-			backgroundColor: "blue",
-			fontWeight: "bold",
+			backgroundColor: "#08018A",
+			border: "2px #DEB887 solid",
+			padding: "5px",
+			fontWeight: "600"
 		},
 		statContainer : {
 			display: "flex",
-			gap: "30px",
+			gap: "50px",
 			justifyContent: "center",
 			color: "black"
 		},
 		image : {
-			width: "60px",
-			height: "60px"
+			width: "45px",
+			height: "40px",
+			margin: "5px"
 		},
 		body : {
 			backgroundColor: "#FEE5C5"
@@ -26,7 +32,7 @@ const CharacterCard = () => {
 		coolstats : {
 			display: "flex",
 			flexOrientation: "row",
-			justifyContent: "center",
+			justifyContent: "space-between",
 			color: "black"
 		}
 
@@ -37,8 +43,8 @@ const CharacterCard = () => {
 			<div id="heading" style={styles.nameContainer}>{character.name}</div>
 			<div style={styles.body}id="body">
 				<div id="details" style={styles.statContainer}>
-					<div>LV {character.level} </div>
-					<div>HP {character.hp_curr}/{character.hp_max}</div>
+					<div style={{"fontWeight": "bold"}}>LV {character.level} </div>
+					<div style={{"fontWeight": "bold"}}>HP {character.hp_curr}/{character.hp_max}</div>
 					</div>
 					<img style={styles.image}src={character.img}></img>
 					<div style={{"color": "black"}}>Great Lord</div>
@@ -47,7 +53,7 @@ const CharacterCard = () => {
 				<div id="coolstats" style={styles.coolstats}>
 					<div>
 					<ul>
-					<p style={{"color": "black"}}>Items</p>
+					<p style={{"color": "black", "fontWeight": "bold"}}>Items</p>
 					<li>{character.items[0].item} x{character.items[0].quantity}</li>
 					<li>{character.items[1].item} x{character.items[1].quantity}</li>
 					<li>{character.items[2].item} x{character.items[2].quantity}</li>
@@ -57,7 +63,7 @@ const CharacterCard = () => {
 					</div>
 					<div>
 					<ul>
-					<p style={{"color": "black"}}>Abilities</p>
+					<p style={{"color": "black", "fontWeight": "bold"}}>Abilities</p>
 					<li>{character.abilities[0]}</li>
 					<li>{character.abilities[1]}</li>
 					<li>{character.abilities[2]}</li>

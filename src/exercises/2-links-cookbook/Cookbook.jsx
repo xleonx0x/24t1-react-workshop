@@ -1,3 +1,5 @@
+import { recipes } from "./recipeData.js"
+
 const CookBook = () => {
   return (
     <>
